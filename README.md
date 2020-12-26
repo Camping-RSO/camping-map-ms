@@ -1,2 +1,2 @@
-# camping-map-ms
-A microservice for managing camping maps
+# RSO: Image metadata microservice
+
