@@ -36,5 +36,6 @@ jobs:
       with:
         file: ./Dockerfile_with_maven_build
         push: true
-        tags: campingrso/camping-images-ms:${{ steps.time.outputs.time }}
-      
+        tags: |
+          campingrso/camping-images-ms:${{ steps.time.outputs.time }}
+          campingrso/camping-overview-ms:latest
