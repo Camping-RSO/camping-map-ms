@@ -1,5 +1,5 @@
 kumuluzee:
-  name: image-catalog-service
+  name: camping-images-ms-service
   env: dev
   version: 1.0.0
   server:
