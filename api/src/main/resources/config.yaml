@@ -6,12 +6,6 @@ kumuluzee:
     base-url: http://localhost:8080
     http:
       port: 8080
-  openapi-mp:
-    ui:
-      mapping: /ui
-      server-auto-config:
-        enabled: true
-        original-uri-check: true
   datasources:
     - jndi-name: jdbc/SlikeDS
       connection-url: jdbc:postgresql://localhost:5432/kampi
