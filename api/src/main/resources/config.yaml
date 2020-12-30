@@ -6,6 +6,13 @@ kumuluzee:
     base-url: http://localhost:8080
     http:
       port: 8080
+  cors-filter:
+    servlet:
+      allow-generic-http-requests: true
+      allow-origin: "*"
+      supported-headers: "*"
+      supportedMethods: "GET, POST, HEAD, DELETE, OPTIONS"
+      allowSubdomains: true
   datasources:
     - jndi-name: jdbc/SlikeDS
       connection-url: jdbc:postgresql://localhost:5432/kampi

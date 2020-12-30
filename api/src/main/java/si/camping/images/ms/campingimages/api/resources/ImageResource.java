@@ -41,7 +41,7 @@ import java.util.logging.Logger;
 @Path("/slike")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@CrossOrigin(supportedMethods = "GET, POST, HEAD, DELETE, OPTIONS")
+//@CrossOrigin(supportedMethods = "GET, POST, HEAD, DELETE, OPTIONS", allowSubdomains = true)
 public class ImageResource {
 
     private Logger log = Logger.getLogger(ImageResource.class.getName());
