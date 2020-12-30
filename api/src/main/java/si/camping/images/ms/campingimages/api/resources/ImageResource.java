@@ -114,6 +114,53 @@ public class ImageResource {
         return Response.status(Response.Status.OK).entity(image).build();
     }
 
+    @Operation(description = "Pridobi podatke za posamezno sliko kampa.", summary = "Podatki o sliki za kamp")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "Image metadata",
+                    content = @Content(
+                            schema = @Schema(implementation = Image.class))
+            ),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Slika ni bila najdena."
+            )})
+    @GET
+    @Path("/avtokamp/{kamp_id}")
+    public Response getCampingImageMetadata(@Parameter(description = "Id kampa", required = true)
+                                     @PathParam("kamp_id") Integer imageMetadataCampId) {
+        log.info("Pridobivam sliko za kamp...");
+        Image image = imageBean.getCampingImageMetadata(imageMetadataCampId);
+
+        if (image == null) {
+            log.warning("Napaka pri pridobivanju slike za kamp.");
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        log.info("Slika za kamp je bila pridobljena.");
+        return Response.status(Response.Status.OK).entity(image).build();
+    }
+
+    @Operation(description = "Pridobi podatke za posamezno sliko kampa.", summary = "Podatki o sliki za kamp")
+    @APIResponses({
+            @APIResponse(responseCode = "200",
+                    description = "Image metadata",
+                    content = @Content(
+                            schema = @Schema(implementation = Image.class))
+            ),
+            @APIResponse(
+                    responseCode = "404",
+                    description = "Slike niso bile najdene."
+            )})
+    @GET
+    @Path("/avtokamp/slike/{kamp_id}")
+    public Response getCampingImageListMetadata(@Parameter(description = "Id kampa", required = true)
+                                                @PathParam("kamp_id") Integer imageMetadataCampId) {
+        log.info("Pridobivam vse slike za kamp...");
+        List<Image> imageMetadata = imageBean.getCampingImagesMetadata(imageMetadataCampId);
+        log.info("Vse slike za kamp so bile pridobljene.");
+        return Response.status(Response.Status.OK).entity(imageMetadata).build();
+    }
+
     @Operation(description = "Dodaj sliko.", summary = "Dodaj novo sliko")
     @APIResponses({
             @APIResponse(responseCode = "201",

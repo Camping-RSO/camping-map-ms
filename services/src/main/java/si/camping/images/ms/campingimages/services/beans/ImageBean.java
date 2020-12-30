@@ -16,6 +16,7 @@ import javax.ws.rs.NotFoundException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.core.UriInfo;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
@@ -69,6 +70,37 @@ public class ImageBean {
         Image image = ImageConverter.toDto(imageEntity);
 
         return image;
+    }
+
+    public List<Image> getCampingImagesMetadata(Integer kampId) {
+        List<Image> images = getImageMetadata();
+        List<Image> result = new ArrayList<>();
+
+        for (Image i: images) {
+            if (i.getAvtokamp().equals(kampId)) {
+                result.add(i);
+            }
+        }
+
+        return result;
+    }
+
+    public Image getCampingImageMetadata(Integer kampId) {
+        List<Image> images = getImageMetadata();
+        Image result = null;
+
+        for (Image i: images) {
+            if (i.getAvtokamp().equals(kampId)) {
+                result = i;
+                break;
+            }
+        }
+
+        if (result == null) {
+            throw new NotFoundException();
+        }
+
+        return result;
     }
 
     public Image createImageMetadata(Image image) {
