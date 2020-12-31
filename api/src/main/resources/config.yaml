@@ -6,6 +6,13 @@ kumuluzee:
     base-url: http://localhost:8080
     http:
       port: 8080
+  openapi-mp:
+    ui:
+      servlet:
+        mapping: /camping-images/openapi
+      server-auto-config:
+        enabled: true
+        original-uri-check: true
   cors-filter:
     servlet:
       allow-generic-http-requests: true
