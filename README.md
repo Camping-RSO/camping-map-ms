@@ -16,7 +16,13 @@ The repository implements the images of camps. The microservice is done using [K
 
 ## Environment variables
 
-This microservice camping API requires microservices endpoint. For that you can set KUMULUZEE_DATASOURCES0_CONNECTIONURL, KUMULUZEE_DATASOURCES0_USERNAME, KUMULUZEE_DATASOURCES0_PASSWORD and KUMULUZEE_SERVER_BASEURL environment variables when running with Docker.
+This microservice camping API requires microservices endpoint. For that you can set:
+- `KUMULUZEE_DATASOURCES0_CONNECTIONURL`,
+- `KUMULUZEE_DATASOURCES0_USERNAME`,
+- `KUMULUZEE_DATASOURCES0_PASSWORD` and
+- `KUMULUZEE_SERVER_BASEURL`
+
+environment variables when running with Docker.
 
 
 ## Database
